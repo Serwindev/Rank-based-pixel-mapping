@@ -42,15 +42,23 @@ def process():
     sorted_B = sorted(pixels2, key=itemgetter(0))
 
     new_pixels = []
+    
+    t = 0
 
-    for i in range(len(pixels1)):
-        color_A = sorted_A[i]
-        pos_B = sorted_B[i]
+    while t<1:
+        for i in range(len(pixels1)):
+            color_A = sorted_A[i]
+            pos_B = sorted_B[i]
 
-        new_pixels.append((pos_B[1:3], color_A[3:]))
+            x1,y1 = sorted_A[i][1:3]
+            x2,y2 = pos_B[1:3]
 
-        out.putpixel(pos_B[1:3], color_A[3:])
-        
-    out.show()
+            x = int(x1 + t*(x2-x1))
+            y = int(y1 + t*(y2-y1))
+
+            out.putpixel((x,y), color_A[3:])
+    
+        out.save(f"./frames/frame_{t}.jpg","jpeg")
+        t += 0.01
 
 process()
