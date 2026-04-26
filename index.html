@@ -4,14 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Obamify-lite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <input type="file" id="image1">
-    <input type="file" id="image2">
-    <canvas id="mycanvas" width="500" height="500"></canvas>
-    <canvas id="inviscanvas" style="display: none;;" width="500" height="500"></canvas>
-    <button onclick="startAnimate()">Transform</button>
-    <button onclick="reset()">Reset</button>
+    
+    <ul class="navbar">
+        <li>
+            <p>Pixel rearrangement</p>
+        </li>
+        <li>
+            <p class="credits">Made by <a href="https://www.instagram.com/serwin.dev/" target="_blank">Serwin.dev</a></p>
+        </li>
+    </ul>
+    
+    <div class="main-container">
+        <div class="text">
+            What is this?!
+            <p class="title">
+                This is an attempt of recreating the website called "<a href="https://obamify.com/" target="_blank">Obamify</a>"
+            </p>
+            How it works?!
+            <p class="title">
+                It takes two images -- One image provide the color (Source) and another provides the structure (Target).
+                After an algorithimic process, the source image slowly turns into the target image. The output looks like target image but with the colors of source image.
+                <br><br>
+                Dive deeply:
+                <br>
+                Step 1: Convert both images into it's pixels -- also store brightness for each pixel. Brightness can be found by taking average of Red, Blue and Green color values.
+                <br> <br>
+                Step 2: Sort both images according to the brightness value.
+                <br> <br>
+                Step 3: Match both the images. That is, using the sorted image, match each pixel and build a new image with the color of first image and position of second image.
+            </p>
+        </div>
+        <div class="canvas-btn">
+            <div class="canvasStyle">
+                <canvas id="mycanvas" width="500" height="500"></canvas>
+                <canvas id="inviscanvas" style="display: none;" width="500" height="500"></canvas>
+            </div>
+            <div class="btns">
+                <button onclick="startAnimate()" id="transformbtn">Transform</button>
+                <button onclick="reset()" id="resetbtn">Reset</button>
+                <button onclick="download()" id="downbtn">Download</button>
+            </div>
+        </div>
+        <div class="imagesbtn">
+            <div class="imageone">
+                <p>Select image: (Source)</p>
+                <input type="file" id="image1">
+            </div>
+            <div class="imagetwo">
+                <p>Select image: (Target)</p>
+                <input type="file" id="image2">
+            </div>
+            <div class="text1">
+                <br> <br>
+                How to use?!
+            <p class="title">
+                1. Select "Choose file" and upload your source and target image -> Target image won't be visible in the canvas.
+                <br>
+                2. Click "Transform" button to start the process and within some seconds, you would get your final image.
+                <br>
+                3. Click "Reset" tp try again and "Download" to download the final image.
+            </p>
+            Final words:
+            <p class="title">
+                This is just a half-version of obamify -- Still more to go. Maybe, I will try again to improve this website by using optimized algorithm. The technical term for this is "Pixel rearrangement based on ranking". 
+                <br> <br>If you want to contact me, Click "Serwin.dev" in the navbar.
+            </p>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="./index.css">
     <script src="./index.js"></script>
 </body>
 </html>
