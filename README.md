@@ -18,7 +18,7 @@ The good thing is that i have mentioned a whole tutorial in the website itself.
 
 Because, last time, I was told to improve UX of my app -- so, i wrote the tutorial by myself this time.
 
-Make sure to test the [website]()
+Make sure to test the [website](https://serwindev.github.io/Rank-based-pixel-mapping/)
 
 ---
 
